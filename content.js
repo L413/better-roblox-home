@@ -1,3 +1,17 @@
+async function fetchHTML() {
+  try {
+    const response = await fetch('https://moored-mousy-muse.glitch.me');
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    const robloxGames = await response.text();
+    console.log(robloxGames);
+    return robloxGames;
+  } catch (error) {
+    console.error('There has been a problem with your fetch operation:', error);
+  }
+}
+
 setTimeout(() => {
   // Function to remove the first element by class name
   function removeFirstElementByClassName(className) {
@@ -57,9 +71,9 @@ function addFavoritesSection() {
     const newDiv2 = document.createElement('div');
     newDiv2.className = 'game-carousel expand-home-content-disabled';
     newDiv2.setAttribute('data-testid', 'game-carousel');
-    newDiv2.innerHTML = `<div class="grid-item-container game-card-container" data-testid="game-tile"><a class="game-card-link" href="https://www.roblox.com/games/286090429/Arsenal?gameSetTypeId=100000003&amp;homePageSessionInfo=1ed2ab21-8fb7-4654-b14e-a0bdb4b3eb42&amp;isAd=false&amp;numberOfLoadedTiles=6&amp;page=homePage&amp;placeId=286090429&amp;playContext=homePage&amp;position=1&amp;sortPos=3&amp;universeId=111958650" tabindex="0" aria-hidden="false" id="111958650"><span class="thumbnail-2d-container game-card-thumb-container"><img class="" src="https://tr.rbxcdn.com/cec26b2f816a082dbf196fa9e716098e/150/150/Image/Webp" alt="Arsenal" title="Arsenal"></span><div class="game-card-name game-name-title" title="Arsenal">Arsenal</div><div class="game-card-info" data-testid="game-tile-stats"></div></a></div><div class="grid-item-container game-card-container" data-testid="game-tile"><a class="game-card-link" href="https://www.roblox.com/games/537413528/Build-A-Boat-For-Treasure?gameSetTypeId=100000003&amp;homePageSessionInfo=5ddf8c73-4a86-497e-8460-d64436089c82&amp;isAd=false&amp;numberOfLoadedTiles=6&amp;page=homePage&amp;placeId=537413528&amp;playContext=homePage&amp;position=0&amp;sortPos=3&amp;universeId=210851291" tabindex="0" aria-hidden="false" id="210851291"><span class="thumbnail-2d-container game-card-thumb-container"><img class="" src="https://tr.rbxcdn.com/d7157dfa30242a5172aaa9cd821e2570/150/150/Image/Webp" alt="Build A Boat For Treasure" title="Build A Boat For Treasure"></span><div class="game-card-name game-name-title" title="Build A Boat For Treasure">Build A Boat For Treasure</div><div class="game-card-info" data-testid="game-tile-stats"></div></a></div><div class="grid-item-container game-card-container" data-testid="game-tile"><a class="game-card-link" href="https://www.roblox.com/games/2768379856/3008-2-73?gameSetTypeId=100000003&amp;homePageSessionInfo=5ddf8c73-4a86-497e-8460-d64436089c82&amp;isAd=false&amp;numberOfLoadedTiles=52&amp;page=sortDetailPageHome&amp;placeId=2768379856&amp;position=7&amp;universeId=1000233041" tabindex="0" aria-hidden="false" id="1000233041"><span class="thumbnail-2d-container game-card-thumb-container"><img class="" src="https://tr.rbxcdn.com/9e770340182118e35042c60cb52a6fc4/150/150/Image/Webp" alt="3008" title="3008"></span><div class="game-card-name game-name-title" title="3008">3008</div><div class="game-card-info" data-testid="game-tile-stats"></div></a></div><div class="grid-item-container game-card-container" data-testid="game-tile"><a class="game-card-link" href="https://www.roblox.com/games/6516141723/DOORS?gameSetTypeId=100000003&amp;homePageSessionInfo=5ddf8c73-4a86-497e-8460-d64436089c82&amp;isAd=false&amp;numberOfLoadedTiles=52&amp;page=sortDetailPageHome&amp;placeId=6516141723&amp;position=51&amp;universeId=2440500124" tabindex="0" aria-hidden="false" id="2440500124"><span class="thumbnail-2d-container game-card-thumb-container"><img class="" src="https://tr.rbxcdn.com/2c993df62e2303f8c4c761477bd4a872/150/150/Image/Webp" alt="DOORS 👁️" title="DOORS 👁️"></span><div class="game-card-name game-name-title" title="DOORS 👁️">DOORS 👁️</div><div class="game-card-info" data-testid="game-tile-stats"></div></a></div>
-
-<div class="grid-item-container game-card-container" data-testid="game-tile"><a class="game-card-link" href="roblox-studio://1+launchmode/:edit+task:EditPlace+placeId:0" tabindex="0" aria-hidden="false" id="2440500124"><span class="thumbnail-2d-container game-card-thumb-container"><img class="" src="https://i.ibb.co/r6dxfRx/robolx-strrudio.png" alt="Roblox Studio" title="Roblox Studio"></span><div class="game-card-name game-name-title" title="Roblox Studio">Roblox Studio</div><div class="game-card-info" data-testid="game-tile-stats"></div></a></div>`
+    fetchHTML().then(robloxGames => {
+         newDiv2.innerHTML = robloxGames;
+    });
     
     // Get the reference to the friend-carousel-container div
     const friendCarouselContainer = document.querySelector('.friend-carousel-container');
