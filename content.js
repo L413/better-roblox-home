@@ -12,6 +12,34 @@ async function fetchHTML() {
   }
 }
 
+async function fetchStudio() {
+  try {
+    const response = await fetch('https://moored-mousy-muse.glitch.me/studio.html');
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    const studioCode = await response.text();
+    console.log(studioCode);
+    return studioCode;
+  } catch (error) {
+    console.error('There has been a problem with your fetch operation:', error);
+  }
+}
+var targetUrl = "https://www.roblox.com/games/12133572587/roblox-studio";
+    var currentUrl = window.location.href;
+    
+    function runMyFunction() {
+        console.log("URL matches. Running my function...");
+        fetchStudio().then(studioCode => {
+        document.querySelector(".content").innerHTML = studioCode;
+        });
+    }
+    
+    if (currentUrl === targetUrl) {
+        runMyFunction();
+    }
+
+
 setTimeout(() => {
   // Function to remove the first element by class name
   function removeFirstElementByClassName(className) {
@@ -76,6 +104,7 @@ function addFavoritesSection() {
     fetchHTML().then(robloxGames => {
          newDiv2.innerHTML = robloxGames;
     });
+
     
     // Get the reference to the friend-carousel-container div
     const friendCarouselContainer = document.querySelector('.friend-carousel-container');
