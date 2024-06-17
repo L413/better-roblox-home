@@ -70,7 +70,9 @@ function addFavoritesSection() {
     
     const newDiv2 = document.createElement('div');
     newDiv2.className = 'game-carousel expand-home-content-disabled';
-    newDiv2.setAttribute('data-testid', 'game-carousel');
+    newDiv2.style.overflowX = "auto";
+    newDiv2.style.overflowY = "hidden";
+    newDiv2.style.whiteSpace = "nowrap";
     fetchHTML().then(robloxGames => {
          newDiv2.innerHTML = robloxGames;
     });
