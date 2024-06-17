@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Better Roblox Homepage",
   "version": "1.0",
-  "description": "Removes the "Todays Picks" and "Recommended For You" sections of the Roblox home page",
+  "description": "Removes the 'Todays Picks' and 'Recommended For You' sections of the Roblox home page",
   "permissions": [
     "activeTab",
     "scripting"
