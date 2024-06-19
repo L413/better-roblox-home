@@ -250,15 +250,17 @@ setTimeout(() => {
 
       // Replace the old list with the new carousel
       originalList.parentNode.replaceChild(newCarouselContainer, originalList);
-      
+
       span.appendChild(uptCode.querySelector(".container-header"));
-      span.appendChild(uptCode.querySelector(".game-carousel.expand-home-content-disabled"));
+      span.appendChild(
+        uptCode.querySelector(".game-carousel.expand-home-content-disabled")
+      );
     });
 
     // Get the second element
     const secondElement = elements[1];
 
-    secondElement.after(span);
+    secondElement.insertAdjacentElement("afterend", span);
   }
 
   // Call the function to add the new section
@@ -268,4 +270,4 @@ setTimeout(() => {
 
   // Additional console log to verify the script is running
   console.log("Script executed after 1 second: specified elements removed.");
-}, 1000); // 1000 milliseconds = 1 second
+}, 1000);
